@@ -1,11 +1,5 @@
-import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  increment,
-  incrementAsync,
-  selectError,
-  selectLoggedInUser,
-} from "../authSlice";
+import { selectError, selectLoggedInUser } from "../authSlice";
 import { Link, Navigate } from "react-router-dom";
 import { checkUserAsync } from "../authSlice";
 import { useForm } from "react-hook-form";
@@ -46,8 +40,6 @@ export default function Login() {
               );
             })}
             className="space-y-6"
-            action="#"
-            method="POST"
           >
             <div>
               <label
@@ -84,12 +76,12 @@ export default function Login() {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a
-                    href="#"
+                  <Link
+                    to="/forgot-password"
                     className="font-semibold text-indigo-600 hover:text-indigo-500"
                   >
                     Forgot password?
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="mt-2">
