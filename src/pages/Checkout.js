@@ -7,12 +7,13 @@ import {
 } from "../features/cart/cartSlice";
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import {
-  selectLoggedInUser,
-  updateUserAsync,
-} from "../features/auth/authSlice";
+import { updateUserAsync } from "../features/auth/authSlice";
 import { useState } from "react";
-import { createOrderAsync } from "../features/order/orderSlice";
+import {
+  createOrderAsync,
+  selectCurrentOrder,
+} from "../features/order/orderSlice";
+import { selectUserInfo } from "../features/user/userSlice";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -23,8 +24,10 @@ function Checkout() {
     formState: { errors },
   } = useForm();
 
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const items = useSelector(selectItems);
+  const currentOrder = useSelector(selectCurrentOrder);
+
   const totalAmount = items.reduce(
     (amount, item) => item.price * item.quantity + amount,
     0
@@ -61,6 +64,7 @@ function Checkout() {
         user,
         paymentMethod,
         selectedAddress,
+        status: "pending", // other status can be delivered, received.
       };
       dispatch(createOrderAsync(order));
       // need to redirect from here to a new page of order success.
@@ -76,6 +80,12 @@ function Checkout() {
   return (
     <>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
+      {currentOrder && (
+        <Navigate
+          to={`/order-success/${currentOrder.id}`}
+          replace={true}
+        ></Navigate>
+      )}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
@@ -87,7 +97,7 @@ function Checkout() {
                 console.log(data);
                 dispatch(
                   updateUserAsync({
-                    ...user,
+                    // ...user,
                     addresses: [...user.addresses, data],
                   })
                 );
@@ -291,7 +301,7 @@ function Checkout() {
                 Choose from Existing addresses
               </p>
               <ul role="list">
-                {user.addresses.map((address, index) => (
+                {user?.addresses?.map((address, index) => (
                   <li
                     key={index}
                     className="flex justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200"
@@ -384,7 +394,7 @@ function Checkout() {
                 </h1>
                 <div className="flow-root">
                   <ul role="list" className="-my-6 divide-y divide-gray-200">
-                    {items.map((item) => (
+                    {items?.map((item) => (
                       <li key={item.id} className="flex py-6">
                         <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                           <img
