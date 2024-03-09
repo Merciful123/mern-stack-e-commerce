@@ -338,7 +338,7 @@ function MobileFilter({
 function DesktopFilter({ handleFilter, filters }) {
   return (
     <form className="hidden lg:block">
-      {filters?.map((section) => (
+      {filters && filters?.map((section) => (
         <Disclosure
           as="div"
           key={section.id}
@@ -439,7 +439,7 @@ function Pagination({ page, setPage, handlePage, totalItems }) {
             </div>
             {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
 
-            {Array.from({ length: totalPages })?.map((el, index) => (
+            {Array.from({ length: totalPages }).map((el, index) => (
               <div
                 onClick={(e) => handlePage(index + 1)}
                 aria-current="page"
@@ -472,8 +472,8 @@ function ProductGrid({ products }) {
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-          {products?.map((product) => (
-            <Link to="/product-detail" key={product.id}>
+          {products.map((product) => (
+            <Link to={`/product-detail/${product.id}`} key={product.id}>
               <div className="group relative border-solid border-2 p-2 border-gray-200">
                 <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
                   <img
