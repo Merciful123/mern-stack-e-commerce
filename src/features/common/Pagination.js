@@ -49,7 +49,7 @@ export default function Pagination({ page, setPage, handlePage, totalItems }) {
               </div>
               {/* Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" */}
   
-              {Array.from({ length: totalPages }).map((el, index) => (
+              {Array.from({ length: totalPages })?.map((el, index) => (
                 <div
                   onClick={(e) => handlePage(index + 1)}
                   aria-current="page"

@@ -144,7 +144,7 @@ export default function AdminProductList() {
                 >
                   <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div className="py-1">
-                      {sortOptions.map((option) => (
+                      {sortOptions?.map((option) => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
                             <p
@@ -275,7 +275,7 @@ function MobileFilter({
 
               {/* Filters */}
               <form className="mt-4 border-t border-gray-200">
-                {filters.map((section) => (
+                {filters?.map((section) => (
                   <Disclosure
                     as="div"
                     key={section.id}
@@ -305,7 +305,7 @@ function MobileFilter({
                         </h3>
                         <Disclosure.Panel className="pt-6">
                           <div className="space-y-6">
-                            {section.options.map((option, optionIdx) => (
+                            {section?.options?.map((option, optionIdx) => (
                               <div
                                 key={option.value}
                                 className="flex items-center"
@@ -347,7 +347,7 @@ function MobileFilter({
 function DesktopFilter({ handleFilter, filters }) {
   return (
     <form className="hidden lg:block">
-      {filters.map((section) => (
+      {filters?.map((section) => (
         <Disclosure
           as="div"
           key={section.id}
@@ -371,7 +371,7 @@ function DesktopFilter({ handleFilter, filters }) {
               </h3>
               <Disclosure.Panel className="pt-6">
                 <div className="space-y-4">
-                  {section.options.map((option, optionIdx) => (
+                  {section?.options?.map((option, optionIdx) => (
                     <div key={option.value} className="flex items-center">
                       <input
                         id={`filter-${section.id}-${optionIdx}`}
@@ -481,7 +481,7 @@ function ProductGrid({ products }) {
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-0 sm:px-6 sm:py-0 lg:max-w-7xl lg:px-8">
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-          {products.map((product) => (
+          {products?.map((product) => (
             <div>
               <Link to={`/product-detail/${product.id}`} key={product.id}>
                 <div className="group relative border-solid border-2 p-2 border-gray-200">
@@ -520,6 +520,11 @@ function ProductGrid({ products }) {
                   {product.deleted && (
                     <div>
                       <p className="text-sm text-red-400">product deleted</p>
+                    </div>
+                  )}
+                  {product.stock <= 0 && (
+                    <div>
+                      <p className="text-sm text-red-400">out of stock</p>
                     </div>
                   )}
                 </div>

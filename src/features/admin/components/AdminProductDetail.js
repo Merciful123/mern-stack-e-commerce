@@ -68,7 +68,7 @@ export default function AdminProductDetail() {
           <nav aria-label="Breadcrumb">
             <ol className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
               {product.breadcrumbs &&
-                product.breadcrumbs.map((breadcrumb) => (
+                product.breadcrumbs?.map((breadcrumb) => (
                   <li key={breadcrumb.id}>
                     <div className="flex items-center">
                       <a
@@ -159,7 +159,7 @@ export default function AdminProductDetail() {
                 <h3 className="sr-only">Reviews</h3>
                 <div className="flex items-center">
                   <div className="flex items-center">
-                    {[0, 1, 2, 3, 4].map((rating) => (
+                    {[0, 1, 2, 3, 4]?.map((rating) => (
                       <StarIcon
                         key={rating}
                         className={classNames(
@@ -190,7 +190,7 @@ export default function AdminProductDetail() {
                       Choose a color
                     </RadioGroup.Label>
                     <div className="flex items-center space-x-3">
-                      {colors.map((color) => (
+                      {colors?.map((color) => (
                         <RadioGroup.Option
                           key={color.name}
                           value={color}
@@ -240,7 +240,7 @@ export default function AdminProductDetail() {
                       Choose a size
                     </RadioGroup.Label>
                     <div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
-                      {sizes.map((size) => (
+                      {sizes?.map((size) => (
                         <RadioGroup.Option
                           key={size.name}
                           value={size}
@@ -329,7 +329,7 @@ export default function AdminProductDetail() {
 
                 <div className="mt-4">
                   <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
-                    {highlights.map((highlight) => (
+                    {highlights?.map((highlight) => (
                       <li key={highlight} className="text-gray-400">
                         <span className="text-gray-600">{highlight}</span>
                       </li>

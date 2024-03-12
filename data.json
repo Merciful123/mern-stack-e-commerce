@@ -7,7 +7,7 @@
       "price": 993,
       "discountPercentage": 12.96,
       "rating": 0,
-      "stock": 94,
+      "stock": 0,
       "brand": "Apple",
       "category": "smartphones",
       "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
@@ -35,7 +35,8 @@
         "https://i.dummyjson.com/data/products/2/2.jpg",
         "https://i.dummyjson.com/data/products/2/3.jpg",
         "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": 3,
@@ -50,7 +51,8 @@
       "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
       "images": [
         "https://i.dummyjson.com/data/products/3/1.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": 4,
@@ -2400,9 +2402,47 @@
       "addresses": [],
       "role": "admin",
       "id": 3
+    },
+    {
+      "email": "aman1@gmail.com",
+      "password": "Aman1234",
+      "addresses": [
+        {
+          "name": "Aamir Raza Aamir Raza",
+          "email": "raza949597@gmail.com",
+          "phone": "7503552330",
+          "street": "R-252/B, Gali No- 4/5, Near Altaqwa Masjid",
+          "city": "New Delhi, India",
+          "state": "Delhi",
+          "pinCode": "110025"
+        }
+      ],
+      "role": "user",
+      "id": 4
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "title": "Huawei P30",
+      "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+      "price": 499,
+      "discountPercentage": 10.58,
+      "rating": 4.09,
+      "stock": 32,
+      "brand": "Huawei",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/5/1.jpg",
+        "https://i.dummyjson.com/data/products/5/2.jpg",
+        "https://i.dummyjson.com/data/products/5/3.jpg"
+      ],
+      "productId": 5,
+      "quantity": 1,
+      "user": 2,
+      "id": 1
+    }
+  ],
   "orders": [
     {
       "items": [
@@ -3103,64 +3143,53 @@
     {
       "items": [
         {
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 993,
-          "discountPercentage": 12.96,
-          "rating": 0,
-          "stock": 94,
-          "brand": "Apple",
+          "title": "Samsung Universe 9",
+          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+          "price": 1249,
+          "discountPercentage": 15.46,
+          "rating": 4.09,
+          "stock": 36,
+          "brand": "Samsung",
           "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+          "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
           "images": [
-            "https://i.dummyjson.com/data/products/1/1.jpg",
-            "https://i.dummyjson.com/data/products/1/2.jpg",
-            "https://i.dummyjson.com/data/products/1/3.jpg",
-            "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
+            "https://i.dummyjson.com/data/products/3/1.jpg"
           ],
           "deleted": true,
+          "productId": 3,
           "quantity": 1,
-          "user": 1,
-          "id": 1
+          "user": 4,
+          "id": 2
         }
       ],
-      "totalAmount": 864,
+      "totalAmount": 1056,
       "totalItems": 1,
       "user": {
-        "email": "test@gmail.com",
-        "password": "Qwerty123",
-        "role": "user",
+        "email": "aman1@gmail.com",
+        "password": "Aman1234",
         "addresses": [
           {
-            "name": "Abhishek Rathore",
-            "email": "test@gmail.com",
-            "phone": "1234567788",
-            "street": "11th Main",
-            "city": "Banaglore",
-            "state": "Karnataka",
-            "pinCode": "560034"
-          },
-          {
-            "name": "Jack Morris",
-            "email": "jack@gmail.com",
-            "city": "Delhi",
+            "name": "Aamir Raza Aamir Raza",
+            "email": "raza949597@gmail.com",
+            "phone": "7503552330",
+            "street": "R-252/B, Gali No- 4/5, Near Altaqwa Masjid",
+            "city": "New Delhi, India",
             "state": "Delhi",
-            "pinCode": "110006",
-            "phone": "12312331232",
-            "street": "12th cross"
+            "pinCode": "110025"
           }
         ],
-        "id": 1
+        "role": "user",
+        "id": 4
       },
       "paymentMethod": "cash",
       "selectedAddress": {
-        "name": "Abhishek Rathore",
-        "email": "test@gmail.com",
-        "phone": "1234567788",
-        "street": "11th Main",
-        "city": "Banaglore",
-        "state": "Karnataka",
-        "pinCode": "560034"
+        "name": "Aamir Raza Aamir Raza",
+        "email": "raza949597@gmail.com",
+        "phone": "7503552330",
+        "street": "R-252/B, Gali No- 4/5, Near Altaqwa Masjid",
+        "city": "New Delhi, India",
+        "state": "Delhi",
+        "pinCode": "110025"
       },
       "status": "pending",
       "id": 12
