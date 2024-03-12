@@ -14,6 +14,7 @@ const navigation = [
   { name: "Dashboard", link: "#", user: true },
   { name: "Team", link: "#", user: true },
   { name: "Admin", link: "/admin", admin: true },
+  { name: "Orders", link: "/admin/orders", admin: true },
 ];
 const userNavigation = [
   { name: "My Profile", link: "/profile" },
@@ -49,8 +50,8 @@ function NavBar({ children }) {
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
-                        {navigation?.map((item) =>
-                          item[user?.role] ? (
+                        {navigation.map((item) =>
+                          item[user.role] ? (
                             <Link
                               key={item.name}
                               to={item.link}
@@ -96,7 +97,7 @@ function NavBar({ children }) {
                             <span className="sr-only">Open user menu</span>
                             <img
                               className="h-8 w-8 rounded-full"
-                              src={user?.imageUrl}
+                              src={user.imageUrl}
                               alt=""
                             />
                           </Menu.Button>
@@ -111,7 +112,7 @@ function NavBar({ children }) {
                           leaveTo="transform opacity-0 scale-95"
                         >
                           <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            {userNavigation?.map((item) => (
+                            {userNavigation.map((item) => (
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
                                   <Link
@@ -153,7 +154,7 @@ function NavBar({ children }) {
 
               <Disclosure.Panel className="md:hidden">
                 <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                  {navigation?.map((item) => (
+                  {navigation.map((item) => (
                     <Disclosure.Button
                       key={item.name}
                       as="a"
@@ -175,16 +176,16 @@ function NavBar({ children }) {
                     <div className="flex-shrink-0">
                       <img
                         className="h-10 w-10 rounded-full"
-                        src={user?.imageUrl}
+                        src={user.imageUrl}
                         alt=""
                       />
                     </div>
                     <div className="ml-3">
                       <div className="text-base font-medium leading-none text-white">
-                        {user?.name}
+                        {user.name}
                       </div>
                       <div className="text-sm font-medium leading-none text-gray-400">
-                        {user?.email}
+                        {user.email}
                       </div>
                     </div>
                     <Link to="/cart">
@@ -205,7 +206,7 @@ function NavBar({ children }) {
                     )}
                   </div>
                   <div className="mt-3 space-y-1 px-2">
-                    {userNavigation?.map((item) => (
+                    {userNavigation.map((item) => (
                       <Disclosure.Button
                         key={item.name}
                         as="a"

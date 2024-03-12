@@ -5,6 +5,7 @@ import {
   selectUserInfo,
   selectUserOrders,
 } from "../userSlice";
+import { discountedPrice } from "../../../app/constants";
 
 export default function UserOrders() {
   const dispatch = useDispatch();
@@ -12,12 +13,12 @@ export default function UserOrders() {
   const orders = useSelector(selectUserOrders);
 
   useEffect(() => {
-    dispatch(fetchLoggedInUserOrderAsync(user?.id));
+    dispatch(fetchLoggedInUserOrderAsync(user.id));
   }, [dispatch, user]);
 
   return (
     <div>
-      {orders?.map((order) => (
+      {orders.map((order) => (
         <div>
           <div>
             <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -46,7 +47,7 @@ export default function UserOrders() {
                               <h3>
                                 <a href={item.href}>{item.title}</a>
                               </h3>
-                              <p className="ml-4">${item.price}</p>
+                              <p className="ml-4">${discountedPrice(item)}</p>
                             </div>
                             <p className="mt-1 text-sm text-gray-500">
                               {item.brand}
