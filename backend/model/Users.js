@@ -1,9 +1,30 @@
-const express = require('express');
-const { fetchUserById, updateUser } = require('../controller/User');
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
-const router = express.Router();
-//  /users is already added in base path
-router.get('/:id', fetchUserById)
-      .patch('/:id', updateUser)
+const userSchema = new Schema(
+  {
+    email: { type: String, required: true, unique: true },
+    password: { type: Buffer, required: true },
+    role: { type: String, required: true, default: "user" },
+    addresses: { type: [Schema.Types.Mixed] },
+    // for addresses, we can make a separate Schema like orders. but in this case we are fine
+    name: { type: String },
+    salt: Buffer,
+    resetPasswordToken: { type: String, default: "" },
+  },
+  { timestamps: true }
+);
 
-exports.router = router;
+const virtual = userSchema.virtual("id");
+virtual.get(function () {
+  return this._id;
+});
+userSchema.set("toJSON", {
+  virtuals: true,
+  versionKey: false,
+  transform: function (doc, ret) {
+    delete ret._id;
+  },
+});
+
+exports.User = mongoose.model("User", userSchema);

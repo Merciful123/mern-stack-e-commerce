@@ -1,4 +1,4 @@
-const { Product } = require('../model/Product');
+const { Product } = require("../model/Product");
 
 exports.createProduct = async (req, res) => {
   // this product we have to get from API body
@@ -16,8 +16,8 @@ exports.fetchAllProducts = async (req, res) => {
   // sort = {_sort:"price",_order="desc"}
   // pagination = {_page:1,_limit=10}
   // TODO : we have to try with multiple category and brands after change in front-end
-  let query = Product.find({});
-  let totalProductsQuery = Product.find({});
+  let query = Product.find({ deleted: { $ne: true } });
+  let totalProductsQuery = Product.find({ deleted: { $ne: true } });
 
   if (req.query.category) {
     query = query.find({ category: req.query.category });
@@ -45,7 +45,7 @@ exports.fetchAllProducts = async (req, res) => {
 
   try {
     const docs = await query.exec();
-    res.set('X-Total-Count', totalDocs);
+    res.set("X-Total-Count", totalDocs);
     res.status(200).json(docs);
   } catch (err) {
     res.status(400).json(err);
@@ -66,7 +66,9 @@ exports.fetchProductById = async (req, res) => {
 exports.updateProduct = async (req, res) => {
   const { id } = req.params;
   try {
-    const product = await Product.findByIdAndUpdate(id, req.body, {new:true});
+    const product = await Product.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
     res.status(200).json(product);
   } catch (err) {
     res.status(400).json(err);

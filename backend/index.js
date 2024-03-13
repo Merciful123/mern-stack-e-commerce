@@ -2,6 +2,8 @@ const express = require("express");
 const server = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
+const dotenv = require("dotenv")
+dotenv.config()
 
 const { createProduct } = require("./controller/Product");
 const productsRouter = require("./routes/Products");
@@ -31,7 +33,7 @@ server.use("/orders", ordersRouter.router);
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/ecommerce");
+  await mongoose.connect(process.env.MONGO_DB);
   console.log("database connected");
 }
 
@@ -39,6 +41,6 @@ server.get("/", (req, res) => {
   res.json({ status: "success" });
 });
 
-server.listen(8080, () => {
+server.listen(8000, () => {
   console.log("server started");
 });

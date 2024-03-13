@@ -1,5 +1,5 @@
 const { Category } = require('../model/Category');
-const { User } = require('../model/User');
+const { User } = require('../model/Users.js');
 
 exports.fetchUserById = async (req, res) => {
   const { id } = req.params;
