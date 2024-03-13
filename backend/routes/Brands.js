@@ -6,4 +6,3 @@ const router = express.Router();
 router.get('/', fetchBrands).post('/', createBrand);
 
 exports.router = router;
-// module.exports = router;

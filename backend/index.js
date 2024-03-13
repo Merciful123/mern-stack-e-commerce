@@ -21,6 +21,9 @@ server.use(
     exposedHeaders: ["X-Total-Count"],
   })
 );
+
+server.use(cors())
+
 server.use(express.json()); // to parse req.body
 server.use("/products", productsRouter.router);
 server.use("/categories", categoriesRouter.router);
@@ -41,6 +44,6 @@ server.get("/", (req, res) => {
   res.json({ status: "success" });
 });
 
-server.listen(8000, () => {
+server.listen(8080, () => {
   console.log("server started");
 });

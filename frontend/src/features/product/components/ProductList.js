@@ -111,6 +111,8 @@ export default function ProductList() {
     dispatch(fetchCategoriesAsync());
   }, []);
 
+  console.log(totalItems)
+
   return (
     <div className="bg-white">
       <div>

@@ -7,4 +7,3 @@ router.get('/:id', fetchUserById)
       .patch('/:id', updateUser)
 
 exports.router = router;
-// module.exports = router;
