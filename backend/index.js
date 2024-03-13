@@ -14,15 +14,14 @@ const { createProduct } = require("./controller/Product");
 const productsRouter = require("./routes/Products");
 const categoriesRouter = require("./routes/Categories");
 const brandsRouter = require("./routes/Brands");
-const usersRouter = require("./routes/User");
+const usersRouter = require("./routes/Users");
 const authRouter = require("./routes/Auth");
 const cartRouter = require("./routes/Cart");
 const ordersRouter = require("./routes/Order");
 const { User } = require("./model/User");
 const { isAuth, sanitizeUser, cookieExtractor } = require("./services/common");
-const env = require("dotenv")
+const env = require("dotenv");
 env.config()
-
 const SECRET_KEY = "SECRET_KEY";
 // JWT options
 
@@ -83,7 +82,7 @@ passport.use(
             return done(null, false, { message: "invalid credentials" });
           }
           const token = jwt.sign(sanitizeUser(user), SECRET_KEY);
-          done(null, { token }); // this lines sends to serializer
+          done(null, { id: user.id, role: user.role }); // this lines sends to serializer
         }
       );
     } catch (err) {
