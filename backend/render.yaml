@@ -1,0 +1,16 @@
+services:
+  - name: backend
+    type: web
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: node index.js
+
+routes:
+  - path: /*
+    destination: backend/build/index.html
+    type: rewrite
+
+# Optional: If you need to specify environment variables
+# environment:
+#   - key: YOUR_ENV_VARIABLE
+#     value: YOUR_ENV_VALUE
