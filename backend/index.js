@@ -23,14 +23,13 @@ const { User } = require("./model/User");
 const { isAuth, sanitizeUser, cookieExtractor } = require("./services/common");
 const path = require("path");
 const { Order } = require("./model/Order");
-
+require("dotenv").config();
 
 // Webhook
 
 // TODO: we will capture actual order after deploying out server live on public URL
 
 const endpointSecret = process.env.ENDPOINT_SECRET;
-
 server.post(
   "/webhook",
   express.raw({ type: "application/json" }),
