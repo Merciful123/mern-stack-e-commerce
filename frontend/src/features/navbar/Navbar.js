@@ -30,6 +30,7 @@ function NavBar({ children }) {
   const items = useSelector(selectItems);
   const userInfo = useSelector(selectUserInfo);
 
+  console.log(userInfo)
   return (
     <>
       {userInfo && (
