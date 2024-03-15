@@ -61,7 +61,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `http://localhost:8080/${currentOrder.id}`,
+        return_url: `https://mern-stack-e-commerce-1mdx3jgcj-aamir-razas-projects.vercel.app/order-success/${currentOrder.id}`,
       },
     });
 
