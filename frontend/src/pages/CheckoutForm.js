@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import {
   PaymentElement,
   useStripe,
-  useElements
+  useElements,
 } from "@stripe/react-stripe-js";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import { selectCurrentOrder } from "../features/order/orderSlice";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
   const currentOrder = useSelector(selectCurrentOrder);
-  
+
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -61,7 +61,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `http://localhost:3000/order-success/${currentOrder.id}`,
+        return_url: `https://mern-ecommerce-lyart.vercel.app/order-success/${currentOrder.id}`,
       },
     });
 
@@ -80,8 +80,8 @@ export default function CheckoutForm() {
   };
 
   const paymentElementOptions = {
-    layout: "tabs"
-  }
+    layout: "tabs",
+  };
 
   return (
     <form id="payment-form" onSubmit={handleSubmit}>

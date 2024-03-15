@@ -193,7 +193,7 @@ server.post(
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect(process.env.MONGO_DB);
+  await mongoose.connect(process.env.MONGODB_URL);
   console.log("database connected");
 }
 

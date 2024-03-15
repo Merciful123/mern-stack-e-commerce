@@ -111,8 +111,6 @@ export default function ProductList() {
     dispatch(fetchCategoriesAsync());
   }, []);
 
-  console.log(totalItems)
-
   return (
     <div className="bg-white">
       <div>
@@ -152,7 +150,7 @@ export default function ProductList() {
                 >
                   <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <div className="py-1">
-                      {sortOptions?.map((option) => (
+                      {sortOptions.map((option) => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
                             <p
@@ -274,7 +272,7 @@ function MobileFilter({
 
               {/* Filters */}
               <form className="mt-4 border-t border-gray-200">
-                {filters?.map((section) => (
+                {filters.map((section) => (
                   <Disclosure
                     as="div"
                     key={section.id}
@@ -304,7 +302,7 @@ function MobileFilter({
                         </h3>
                         <Disclosure.Panel className="pt-6">
                           <div className="space-y-6">
-                            {section?.options?.map((option, optionIdx) => (
+                            {section.options.map((option, optionIdx) => (
                               <div
                                 key={option.value}
                                 className="flex items-center"
@@ -346,7 +344,7 @@ function MobileFilter({
 function DesktopFilter({ handleFilter, filters }) {
   return (
     <form className="hidden lg:block">
-      {filters?.map((section) => (
+      {filters.map((section) => (
         <Disclosure
           as="div"
           key={section.id}
@@ -370,7 +368,7 @@ function DesktopFilter({ handleFilter, filters }) {
               </h3>
               <Disclosure.Panel className="pt-6">
                 <div className="space-y-4">
-                  {section?.options?.map((option, optionIdx) => (
+                  {section.options.map((option, optionIdx) => (
                     <div key={option.value} className="flex items-center">
                       <input
                         id={`filter-${section.id}-${optionIdx}`}
@@ -416,7 +414,7 @@ function ProductGrid({ products, status }) {
               visible={true}
             />
           ) : null}
-          {products?.map((product) => (
+          {products.map((product) => (
             <Link to={`/product-detail/${product.id}`} key={product.id}>
               <div className="group relative border-solid border-2 p-2 border-gray-200">
                 <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">

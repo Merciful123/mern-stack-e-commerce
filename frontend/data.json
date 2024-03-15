@@ -49,9 +49,7 @@
       "brand": "Samsung",
       "category": "smartphones",
       "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/3/1.jpg"
-      ],
+      "images": ["https://i.dummyjson.com/data/products/3/1.jpg"],
       "deleted": true
     },
     {
@@ -1429,9 +1427,7 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://i.dummyjson.com/data/products/78/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/78/thumbnail.jpg"
-      ]
+      "images": ["https://i.dummyjson.com/data/products/78/thumbnail.jpg"]
     },
     {
       "id": 79,
@@ -1444,9 +1440,7 @@
       "brand": "Fashion Jewellery",
       "category": "womens-jewellery",
       "thumbnail": "https://i.dummyjson.com/data/products/79/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/79/1.jpg"
-      ]
+      "images": ["https://i.dummyjson.com/data/products/79/1.jpg"]
     },
     {
       "id": 80,
@@ -2402,23 +2396,6 @@
       "addresses": [],
       "role": "admin",
       "id": 3
-    },
-    {
-      "email": "aman1@gmail.com",
-      "password": "Aman1234",
-      "addresses": [
-        {
-          "name": "Aamir Raza Aamir Raza",
-          "email": "raza949597@gmail.com",
-          "phone": "7503552330",
-          "street": "R-252/B, Gali No- 4/5, Near Altaqwa Masjid",
-          "city": "New Delhi, India",
-          "state": "Delhi",
-          "pinCode": "110025"
-        }
-      ],
-      "role": "user",
-      "id": 4
     }
   ],
   "cart": [
@@ -2583,9 +2560,7 @@
           "brand": "Samsung",
           "category": "smartphones",
           "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/3/1.jpg"
-          ],
+          "images": ["https://i.dummyjson.com/data/products/3/1.jpg"],
           "quantity": 2,
           "user": 2
         },
@@ -2843,9 +2818,7 @@
           "brand": "Samsung",
           "category": "smartphones",
           "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/3/1.jpg"
-          ],
+          "images": ["https://i.dummyjson.com/data/products/3/1.jpg"],
           "quantity": 1,
           "user": 2,
           "id": 1
@@ -2914,9 +2887,7 @@
           "brand": "Samsung",
           "category": "smartphones",
           "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/3/1.jpg"
-          ],
+          "images": ["https://i.dummyjson.com/data/products/3/1.jpg"],
           "quantity": 1,
           "user": 2,
           "id": 1
@@ -3139,60 +3110,6 @@
       },
       "status": "pending",
       "id": 11
-    },
-    {
-      "items": [
-        {
-          "title": "Samsung Universe 9",
-          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-          "price": 1249,
-          "discountPercentage": 15.46,
-          "rating": 4.09,
-          "stock": 36,
-          "brand": "Samsung",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/3/1.jpg"
-          ],
-          "deleted": true,
-          "productId": 3,
-          "quantity": 1,
-          "user": 4,
-          "id": 2
-        }
-      ],
-      "totalAmount": 1056,
-      "totalItems": 1,
-      "user": {
-        "email": "aman1@gmail.com",
-        "password": "Aman1234",
-        "addresses": [
-          {
-            "name": "Aamir Raza Aamir Raza",
-            "email": "raza949597@gmail.com",
-            "phone": "7503552330",
-            "street": "R-252/B, Gali No- 4/5, Near Altaqwa Masjid",
-            "city": "New Delhi, India",
-            "state": "Delhi",
-            "pinCode": "110025"
-          }
-        ],
-        "role": "user",
-        "id": 4
-      },
-      "paymentMethod": "cash",
-      "selectedAddress": {
-        "name": "Aamir Raza Aamir Raza",
-        "email": "raza949597@gmail.com",
-        "phone": "7503552330",
-        "street": "R-252/B, Gali No- 4/5, Near Altaqwa Masjid",
-        "city": "New Delhi, India",
-        "state": "Delhi",
-        "pinCode": "110025"
-      },
-      "status": "pending",
-      "id": 12
     }
   ]
 }
