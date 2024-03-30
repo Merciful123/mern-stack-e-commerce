@@ -35,7 +35,7 @@ function NavBar({ children }) {
     <>
       {userInfo && (
         <div className="min-h-full">
-          <Disclosure as="nav" className="bg-gray-800">
+          <Disclosure as="nav" className="bg-purple-800">
             {({ open }) => (
               <>
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
