@@ -12,7 +12,7 @@ To start frontend:-
 To start backend:-
 ### go to the backend directory do "npm install" when it's done then "npm start"
 
-everything should work, however for stripe you will need to create a local webhook to make test paymeny. And change the url in the CheckoutForm.js(in the frontend).
+
 
 
  
