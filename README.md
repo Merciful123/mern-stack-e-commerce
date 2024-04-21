@@ -12,14 +12,14 @@ To start frontend:-
 To start backend:-
 ### go to the backend directory do "npm install" when it's done then "npm start"
 
-everything should work, however for stripe you will need to create a local webhook to make test paymeny. And change the url in the CheckoutForm.js(in the frontend).
+
 
 
  
 ### Here are some of the features implemented in this project. Reset password feature is in progress, rest is complete :
 - Basic E-commerce Features- Product lists, Product Details, Cart, Checkout 
 - Secure Card Payments / Cash payments
-- Admin Panel - Add/Edit Orders. Add/Edit Products
+- Admin Panel - Add/Edit Orders. Add/Edit Products(Currently admin role is being manually provided by updating role database in database so if you want to see this feature login with, admin@gmail.com, pass- Admin@123) 
 - Sorting, Filtering, and Pagination queries using Mongoose
 - Authentication with Passport JS strategies
 - Order Emails, Reset Password Emails
