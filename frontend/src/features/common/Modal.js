@@ -11,6 +11,7 @@ export default function Modal({
   cancelAction,
   showModal,
 }) {
+  
   const [open, setOpen] = useState(false);
 
   const cancelButtonRef = useRef(null);

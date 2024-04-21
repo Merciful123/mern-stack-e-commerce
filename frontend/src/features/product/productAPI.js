@@ -66,6 +66,7 @@ export function fetchProductsByFilters(filter, sort, pagination, admin) {
   });
 }
 
+
 export function fetchCategories() {
   return new Promise(async (resolve) => {
     const response = await fetch("/categories");

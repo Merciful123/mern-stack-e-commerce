@@ -57,6 +57,8 @@ exports.fetchAllProducts = async (req, res) => {
   }
 };
 
+
+
 exports.fetchProductById = async (req, res) => {
   const { id } = req.params;
 
@@ -79,3 +81,6 @@ exports.updateProduct = async (req, res) => {
     res.status(400).json(err);
   }
 };
+
+
+
