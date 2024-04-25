@@ -8,11 +8,14 @@ function Logout() {
   const user = useSelector(selectLoggedInUser);
 
   useEffect(() => {
-    dispatch(signOutAsync());
-  });
+    // Dispatch signOutAsync only if user is logged in
+    if (user) {
+      dispatch(signOutAsync());
+    }
+  }, [dispatch, user]); // Specify dependencies properly
 
-  // but useEffect runs after render, so we have to delay navigate part
-  return <>{!user && <Navigate to="/login" replace={true}></Navigate>}</>;
+  // Redirect to login page if user is logged out
+  return <>{!user && <Navigate to="/login" replace={true} />}</>;
 }
 
 export default Logout;

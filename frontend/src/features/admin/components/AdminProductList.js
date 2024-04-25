@@ -119,7 +119,7 @@ export default function AdminProductList() {
 
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-24">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900">
+            <h1 className="text-xl font-bold tracking-tight text-gray-900">
               All Products
             </h1>
 
@@ -480,8 +480,8 @@ function ProductGrid({ products }) {
           {products.map((product) => (
             <div key={product.id}>
               <Link to={`/product-detail/${product.id}`}>
-                <div className="group relative border-solid border-2 p-2 border-gray-200">
-                  <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
+                <div className="group relative border-solid border-[1px] p-2 border-gray-200 rounded-md hover:shadow-xl">
+                  <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none lg:h-60">
                     <img
                       src={product.thumbnail}
                       alt={product.title}

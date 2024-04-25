@@ -45,7 +45,9 @@ export const signOutAsync = createAsyncThunk(
   async (loginInfo) => {
     const response = await signOut(loginInfo);
     // The value we return becomes the `fulfilled` action payload
+    console.log(response.data)
     return response.data;
+
   }
 );
 

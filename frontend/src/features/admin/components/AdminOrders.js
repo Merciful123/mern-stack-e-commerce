@@ -76,7 +76,7 @@ function AdminOrders() {
 
   return (
     <div className="overflow-x-auto">
-      <div className="bg-gray-100 flex items-center justify-center font-sans overflow-hidden">
+      <div className="bg-gray-100 flex items-center justify-center font-sans ">
         <div className="w-full">
           <div className="bg-white shadow-md rounded my-6">
             <table className="w-full table-auto">

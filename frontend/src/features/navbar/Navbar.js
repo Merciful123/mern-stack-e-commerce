@@ -35,11 +35,11 @@ function NavBar({ children }) {
   console.log(user);
   console.log(userInfo);
 
-  console.log(userInfo?.addresses?.[0]?.name
-                                    .split(" ") // Split the full name by space
-                                    // .map((namePart) => namePart) // Extract the first character of each part
-    // .join("")
+  console.log(userInfo?.addresses?.[0]?.name.split(" ")[0][0] // Split the full name by space
+   // .map((namePart) => namePart) // Extract the first character of each part
   )
+
+  console.log(userInfo?.addresses?.[0]?.name.split(" ").join().split(",")[0]);
   return (
     <>
       {userInfo && (
@@ -108,11 +108,11 @@ function NavBar({ children }) {
                               <span className="sr-only">Open user menu</span>
                               {userInfo?.addresses?.[0]?.name ? (
                                 <div className="h-8 w-8 rounded-full flex items-center justify-center bg-gray-700 text-white">
-                                  {userInfo?.addresses?.[0]?.name
-                                    .split(" ") // Split the full name by space
-                                    [0].split("")[0] // Extract the first character of each part
-                                    // .join("")
-                                  }{" "}
+                                  {
+                                    userInfo?.addresses?.[0]?.name.split(
+                                      " "
+                                    )[0][0] // Extract the first character of each part
+                                  }
                                   {/* Join the initials together */}
                                 </div>
                               ) : (
@@ -198,7 +198,12 @@ function NavBar({ children }) {
                     <div className="flex items-center px-5">
                       <div className="text-base font-medium leading-none text-white mr-2">
                         {/* this should come from userInfo */}
-                        {userInfo?.addresses[0]?.name}
+                        {
+                          userInfo?.addresses?.[0]?.name
+                            .split(" ")
+                            .join()
+                            .split(",")[0]
+                        }
                       </div>
 
                       <Link to="/cart">
@@ -221,6 +226,7 @@ function NavBar({ children }) {
                     <div className="mt-3 space-y-1 px-2">
                       {userNavigation?.map((item) => (
                         <Disclosure.Button
+                          onClick={() => console.log(item.link)}
                           key={item.name}
                           as="a"
                           href={item.link}

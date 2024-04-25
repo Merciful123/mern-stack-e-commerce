@@ -165,10 +165,17 @@ const router = createBrowserRouter([
   },
 ]);
 
+
+
+
+
 function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
   const userChecked = useSelector(selectUserChecked);
+
+  console.log(user)
+  console.log(userChecked)
 
   useEffect(() => {
     dispatch(checkAuthAsync());
