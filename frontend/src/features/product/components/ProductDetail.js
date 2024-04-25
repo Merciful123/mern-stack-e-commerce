@@ -129,35 +129,35 @@ export default function ProductDetail() {
           </nav>
 
           {/* Image gallery */}
-          <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-            <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
+          <div className="mx-auto mt-6 max-w-[90%] sm:gap-[10px] sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 lg:gap-x-8 lg:px-8">
+            <div className="aspect-h-4 aspect-w-3 overflow-hidden rounded-lg lg:block">
               <img
                 src={product.images[0]}
                 alt={product.title}
-                className="h-full w-full object-cover object-center"
+                className="object-cover object-center lg:h-full lg:w-full"
               />
             </div>
-            <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+            <div className="lg:grid lg:grid-cols-1 lg:gap-y-8">
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
                   src={product.images[1]}
                   alt={product.title}
-                  className="h-full w-full object-cover object-center"
+                  className="object-cover object-center h-full w-full lg:h-48 lg:w-full"
                 />
               </div>
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
                   src={product.images[2]}
                   alt={product.title}
-                  className="h-full w-full object-cover object-center"
+                  className="object-cover object-center h-full w-full lg:h-48 lg:w-full"
                 />
               </div>
             </div>
-            <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
+            <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 overflow-hidden rounded-lg">
               <img
                 src={product.images[3]}
                 alt={product.title}
-                className="h-full w-full object-cover object-center"
+                className="object-cover object-center h-full w-full"
               />
             </div>
           </div>
