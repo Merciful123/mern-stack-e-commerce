@@ -153,9 +153,8 @@ export default function Cart() {
                 Checkout
               </Link>
             </div>
-            <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-              <p>
-                or
+            <div className="mt-6 flex justify-center text-center text-sm text-gray-500 gap-2">
+             Or
                 <Link to="/">
                   <button
                     type="button"
@@ -165,7 +164,6 @@ export default function Cart() {
                     <span aria-hidden="true"> &rarr;</span>
                   </button>
                 </Link>
-              </p>
             </div>
           </div>
         </div>

@@ -29,8 +29,17 @@ function classNames(...classes) {
 function NavBar({ children }) {
   const items = useSelector(selectItems);
   const userInfo = useSelector(selectUserInfo);
+  const user = useSelector(selectLoggedInUser);
 
-  console.log(userInfo)
+
+  console.log(user);
+  console.log(userInfo);
+
+  console.log(userInfo?.addresses?.[0]?.name
+                                    .split(" ") // Split the full name by space
+                                    // .map((namePart) => namePart) // Extract the first character of each part
+    // .join("")
+  )
   return (
     <>
       {userInfo && (
@@ -52,7 +61,7 @@ function NavBar({ children }) {
                       </div>
                       <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-4">
-                          {navigation.map((item) =>
+                          {navigation?.map((item) =>
                             item[userInfo.role] ? (
                               <Link
                                 key={item.name}
@@ -86,7 +95,7 @@ function NavBar({ children }) {
                             />
                           </button>
                         </Link>
-                        {items.length > 0 && (
+                        {items?.length > 0 && (
                           <span className="inline-flex items-center rounded-md mb-7 -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
                             {items.length}
                           </span>
@@ -97,11 +106,21 @@ function NavBar({ children }) {
                           <div>
                             <Menu.Button className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                               <span className="sr-only">Open user menu</span>
-                              <img
-                                className="h-8 w-8 rounded-full"
-                                src={userInfo.imageUrl}
-                                alt=""
-                              />
+                              {userInfo?.addresses?.[0]?.name ? (
+                                <div className="h-8 w-8 rounded-full flex items-center justify-center bg-gray-700 text-white">
+                                  {userInfo?.addresses?.[0]?.name
+                                    .split(" ") // Split the full name by space
+                                    [0].split("")[0] // Extract the first character of each part
+                                    // .join("")
+                                  }{" "}
+                                  {/* Join the initials together */}
+                                </div>
+                              ) : (
+                                <div className="h-8 w-8 rounded-full bg-gray-700 text-white flex items-center justify-center">
+                                  <span className="text-xs font-bold">?</span>{" "}
+                                  {/* Placeholder for unknown initials */}
+                                </div>
+                              )}
                             </Menu.Button>
                           </div>
                           <Transition
@@ -114,7 +133,7 @@ function NavBar({ children }) {
                             leaveTo="transform opacity-0 scale-95"
                           >
                             <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                              {userNavigation.map((item) => (
+                              {userNavigation?.map((item) => (
                                 <Menu.Item key={item.name}>
                                   {({ active }) => (
                                     <Link
@@ -156,41 +175,32 @@ function NavBar({ children }) {
 
                 <Disclosure.Panel className="md:hidden">
                   <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                    {navigation.map((item) => (
-                      <Disclosure.Button
-                        key={item.name}
-                        as="a"
-                        href={item.href}
-                        className={classNames(
-                          item.current
-                            ? "bg-gray-900 text-white"
-                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                          "block rounded-md px-3 py-2 text-base font-medium"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
-                      >
-                        {item.name}
-                      </Disclosure.Button>
-                    ))}
+                    {navigation?.map((item) =>
+                      item[userInfo.role] ? (
+                        <Disclosure.Button
+                          key={item.name}
+                          as="a"
+                          href={item.link}
+                          className={classNames(
+                            item.current
+                              ? "bg-gray-900 text-white"
+                              : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                            "block rounded-md px-3 py-2 text-base font-medium"
+                          )}
+                          aria-current={item.current ? "page" : undefined}
+                        >
+                          {item.name}
+                        </Disclosure.Button>
+                      ) : null
+                    )}
                   </div>
                   <div className="border-t border-gray-700 pb-3 pt-4">
                     <div className="flex items-center px-5">
-                      <div className="flex-shrink-0">
-                        <img
-                          className="h-10 w-10 rounded-full"
-                          src={userInfo.imageUrl}
-                          alt=""
-                        />
+                      <div className="text-base font-medium leading-none text-white mr-2">
+                        {/* this should come from userInfo */}
+                        {userInfo?.addresses[0]?.name}
                       </div>
-                      <div className="ml-3">
-                        <div className="text-base font-medium leading-none text-white">
-                          {/* this should come from userInfo */}
-                          {userInfo.name}
-                        </div>
-                        <div className="text-sm font-medium leading-none text-gray-400">
-                          {userInfo.email}
-                        </div>
-                      </div>
+
                       <Link to="/cart">
                         <button
                           type="button"
@@ -202,18 +212,18 @@ function NavBar({ children }) {
                           />
                         </button>
                       </Link>
-                      {items.length > 0 && (
+                      {items?.length > 0 && (
                         <span className="inline-flex items-center rounded-md bg-red-50 mb-7 -ml-3 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
                           {items.length}
                         </span>
                       )}
                     </div>
                     <div className="mt-3 space-y-1 px-2">
-                      {userNavigation.map((item) => (
+                      {userNavigation?.map((item) => (
                         <Disclosure.Button
                           key={item.name}
                           as="a"
-                          href={item.href}
+                          href={item.link}
                           className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                         >
                           {item.name}
@@ -229,7 +239,7 @@ function NavBar({ children }) {
           <header className="bg-white shadow">
             <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
               <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-                E-Commerce
+                E-Shop
               </h1>
             </div>
           </header>
